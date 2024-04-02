@@ -9,10 +9,10 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/postgres
+      - DATABASE_URL=postgresql://langfuse:letmeinyouwill@db:5432/sovera_langfuse
       - NEXTAUTH_SECRET=mysecret
       - SALT=mysalt
-      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_URL=https://langfuse.sovera.xyz
       - TELEMETRY_ENABLED=${TELEMETRY_ENABLED:-true}
       - NEXT_PUBLIC_SIGN_UP_DISABLED=${NEXT_PUBLIC_SIGN_UP_DISABLED:-false}
       - LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES=${LANGFUSE_ENABLE_EXPERIMENTAL_FEATURES:-false}
@@ -21,9 +21,9 @@ services:
     image: postgres
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
+      - POSTGRES_USER=langfuse
+      - POSTGRES_PASSWORD=letmeinyouwill
+      - POSTGRES_DB=sovera_langfuse
     ports:
       - 5432:5432
     volumes:
